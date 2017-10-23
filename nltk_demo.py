@@ -47,13 +47,13 @@ def pop_pos_lists():
     for key in POS:
         count = 0
         for ss in list(wn.all_synsets(key)):
-            for elts in ss.lemmas():
+            for element in ss.lemmas():
                 count += 1
-                if '_' in elts.name():
-                    temp_word = strip_underscores(elts)
+                if '_' in element.name():
+                    temp_word = strip_underscores(element)
                     pos_lists[POS[key]].append(temp_word)
                 else:
-                    pos_lists[POS[key]].append(elts.name())
+                    pos_lists[POS[key]].append(element.name())
         print(str(count) + ' ' + POS[key] + ' loaded...')
 
 
